@@ -1,4 +1,4 @@
-package com.kronos.jsbridge;
+package com.kronos.sample;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.kronos.jsbridge.javascript.JsBridge;
-import com.kronos.jsbridge.jsfunction.JsBridgeManager;
+import com.kronos.jsbridge.JsBridge;
+import com.kronos.sample.jsfunction.JsBridgeManager;
 
 public class MainActivity extends AppCompatActivity {
     private WebView webView;

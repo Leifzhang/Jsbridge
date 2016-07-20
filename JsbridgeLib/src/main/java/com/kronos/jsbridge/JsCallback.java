@@ -1,6 +1,4 @@
-package com.kronos.jsbridge.javascript;
-
-import android.webkit.WebView;
+package com.kronos.jsbridge;
 
 import org.json.JSONObject;
 
@@ -8,7 +6,7 @@ import org.json.JSONObject;
  * Created by zhangyang on 16/3/16.
  */
 public interface JsCallback {
-    void onCallBack(WebView view, String function, JSONObject args);
+    void onCallBack(JsBridge view, String function, JSONObject args);
 
     void setCallBackId(String callBackId);
 

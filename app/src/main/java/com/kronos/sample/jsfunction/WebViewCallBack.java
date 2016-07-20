@@ -1,9 +1,10 @@
-package com.kronos.jsbridge.jsfunction;
+package com.kronos.sample.jsfunction;
 
 import android.text.TextUtils;
 import android.webkit.WebView;
 
-import com.kronos.jsbridge.javascript.CustomCallBack;
+import com.kronos.jsbridge.CustomCallBack;
+import com.kronos.jsbridge.JsBridge;
 
 import org.json.JSONObject;
 
@@ -16,7 +17,8 @@ public class WebViewCallBack extends CustomCallBack {
     }
 
     @Override
-    public void onCallBack(WebView view, String function, JSONObject args) {
+    public void onCallBack(JsBridge jsBridge, String function, JSONObject args) {
+        WebView view = jsBridge.getWebView();
         if (TextUtils.equals(function, "open")) {
             open(view, args);
         }

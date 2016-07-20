@@ -1,4 +1,4 @@
-package com.kronos.jsbridge.javascript;
+package com.kronos.jsbridge;
 
 import android.content.Context;
 

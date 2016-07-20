@@ -1,4 +1,4 @@
-package com.kronos.jsbridge.javascript;
+package com.kronos.jsbridge;
 
 /**
  * Created by zhangyang on 16/3/23.

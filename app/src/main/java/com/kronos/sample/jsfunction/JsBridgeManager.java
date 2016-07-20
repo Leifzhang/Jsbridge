@@ -1,10 +1,10 @@
-package com.kronos.jsbridge.jsfunction;
+package com.kronos.sample.jsfunction;
 
 import android.app.Activity;
 import android.content.Context;
 
-import com.kronos.jsbridge.javascript.CustomCallBack;
-import com.kronos.jsbridge.javascript.JsMethodManager;
+import com.kronos.jsbridge.CustomCallBack;
+import com.kronos.jsbridge.JsMethodManager;
 
 import java.util.HashMap;
 import java.util.Map;

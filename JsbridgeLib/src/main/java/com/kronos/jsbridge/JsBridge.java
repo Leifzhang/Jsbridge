@@ -1,4 +1,4 @@
-package com.kronos.jsbridge.javascript;
+package com.kronos.jsbridge;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,8 +44,8 @@ public class JsBridge {
         webView.addJavascriptInterface(new Js(), BridgeName);
     }
 
-    public void loadJavaScipt(String callbackid, String json) {
-        webView.loadUrl(CallbackToJs.getJavaScipt(callbackid, json));
+    public void loadJavaScript(String callbackId, String json) {
+        webView.loadUrl(CallbackToJs.getJavaScipt(callbackId, json));
     }
 
     public void loadError(String functionName, String json) {
@@ -76,8 +76,11 @@ public class JsBridge {
         if (callbacks.containsKey(methodName)) {
             JSONObject argsObject = new JSONObject(args);
             callbacks.get(methodName).setCallBackId(argsObject.optString("callbackId"));
-            callbacks.get(methodName).onCallBack(webView, nameSpaces[2], argsObject);
+            callbacks.get(methodName).onCallBack(this, nameSpaces[2], argsObject);
         }
     }
 
+    public WebView getWebView() {
+        return webView;
+    }
 }

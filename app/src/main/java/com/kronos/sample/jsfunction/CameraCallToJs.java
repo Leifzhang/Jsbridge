@@ -1,9 +1,12 @@
-package com.kronos.jsbridge.jsfunction;
+package com.kronos.sample.jsfunction;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 
-import com.kronos.jsbridge.javascript.JsBridge;
+import com.kronos.jsbridge.JsBridge;
+import com.kronos.sample.utils.BitmapUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,7 +68,7 @@ public class CameraCallToJs {
                 ImageLoadManager.loadBitmap(file, mActivity, new SimpleResponseListener<Bitmap>() {
                     @Override
                     public void onComplete(Bitmap bitmap) {
-                        testing(bundle, bitmap, jsBridge);
+                        sendBitmap(bundle, bitmap, jsBridge);
                     }
                 });
             } catch (Exception e) {
@@ -86,11 +89,11 @@ public class CameraCallToJs {
         jsBridge.loadError(callbackFunctionName, jsonObject.toString());
     }
 
-    /*private static void testing(Bundle bundle, final Bitmap bitmap, JsBridge js) {
-        final String callbackid = bundle.getString("callbackId");
+    public static void sendBitmap(Bundle bundle, final Bitmap bitmap, JsBridge js) {
+        final String callbackId = bundle.getString("callbackId");
         final String quality = bundle.getString("quality", "100");
         int q = Integer.valueOf(quality);
-        String str = FileUtil.getBitmapBase64(bitmap, q);
+        String str = BitmapUtils.getBitmapBase64(bitmap, q);
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("message", "success");
@@ -100,6 +103,6 @@ public class CameraCallToJs {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        js.loadJavaScipt(callbackid, jsonObject.toString());
-    }*/
+        js.loadJavaScript(callbackId, jsonObject.toString());
+    }
 }
