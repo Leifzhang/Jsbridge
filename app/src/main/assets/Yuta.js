@@ -139,7 +139,16 @@
             })
         }
     }
-
+    Yuta.Image = {
+        loadImage: function (onSuccess, onFail, options) {
+            wrapSuccessFailFunc({
+                methodName: 'Yuta.Image.loadImage',
+                onSuccess: onSuccess,
+                onFail: onFail,
+                args: options
+            })
+        }
+    }
     Yuta.WebView = {
         close: function (url) {
             invokeWrap('Yuta.WebView.close', {url: url})

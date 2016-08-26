@@ -22,6 +22,8 @@ public class JsBridgeManager implements JsMethodManager {
         map.put(openWebview.getCallbackFunctionName(), openWebview);
         ShareCallBack share = new ShareCallBack();
         map.put(share.getCallbackFunctionName(), share);
+        LoadImageCallBack image = new LoadImageCallBack();
+        map.put(image.getCallbackFunctionName(), image);
         for (Map.Entry<String, CustomCallBack> entry : map.entrySet()) {
             entry.getValue().attach((Activity) context);
         }

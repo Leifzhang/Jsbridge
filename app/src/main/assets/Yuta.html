@@ -101,6 +101,8 @@
     </form>
     <input type="button" id='camera' value="相机">
     <br>
+    <input type="button" id='image' value="图片加载">
+    <br>
     <input type="button" id="share-img" value="image分享">
     <br>
     <input type="button" id="open" value="open webview">
@@ -151,6 +153,16 @@
         Yuta.Camera.getPicture(function (e) {
             $('#img')[0].src = 'data:image/jpeg;base64,' + e.data
         }, function (e) {
+            log(e)
+        }, data)
+    })
+     $('#image').click(function () {
+        var data = {
+            "image":"https://wpimg.wallstcn.com/a8/72/e2/3dr99L.jpg!app.list.thumbnail"
+        }
+        Yuta.Image.loadImage(function (e) {
+            $('#img')[0].src =  e.data
+        },function (e) {
             log(e)
         }, data)
     })
